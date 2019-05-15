@@ -137,10 +137,19 @@ export default class Battle extends React.Component {
     })
   }
   render() {
-    const { playerOne, playerTwo, battle } = this.state;
-    
-    if (battle === true){
-      return <Results playerOne={playerOne} playerTwo={playerTwo} />
+    const { playerOne, playerTwo, battle } = this.state
+
+    if (battle === true) {
+      return <Results 
+      playerOne={playerOne} 
+      playerTwo={playerTwo} 
+        onReset= {() =>this.setState({
+          playerOne:null,
+          playerTwo:null,
+          battle:false
+
+        })}
+      />
     }
 
     return (
@@ -174,10 +183,16 @@ export default class Battle extends React.Component {
                 />
             }
           </div>
-          {playerOne && playerTwo && (<button
-          className='btn dark-btn btn-space' onClick={()=> this.setState({battle:true})} 
-          >Battle</button>)}
 
+
+          {playerOne && playerTwo && (
+            <button
+              className='btn dark-btn btn-space'
+              onClick={() => this.setState({battle: true})}
+            >
+              Battle
+            </button>
+          )}
         </div>
       </React.Fragment>
     )

@@ -8,8 +8,8 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        {/* //<Pupolar/> */}
-        <Battle/>
+        <Pupolar/>
+         {/* <Battle/>  */}
 
       </div>
     )
