@@ -82,12 +82,23 @@ PlayerInput.propTypes = {
 }
 
 export default class Battle extends React.Component {
+  constructor(props){
+    super(props)
+    this.state ={
+      playerOne:null,
+      playerTwo:null,
+    }
+
+  }
+
   render() {
+    const {playerOne, playerTwo} =this.state;
     return (
       <React.Fragment>
         <Instructions />
-        <PlayerInput label='Label' onSubmit={(value) =>
-        console.log('value', value)} />
+        <div className='player-container'>
+          Players
+        </div>
       </React.Fragment>
     )
   }
