@@ -40,6 +40,10 @@ li {
   color: inherit;
 }
 
+nav li {
+  margin-right: 10px
+}
+
 .grid {
   display: flex;
   flex-wrap: wrap;
@@ -262,4 +266,7 @@ border-radius: 3px;
 .light-btn:disabled {
   background: #292929;
   color: #4a4a4a;
+}
+.space-between{
+  justify-content: space-between
 }
