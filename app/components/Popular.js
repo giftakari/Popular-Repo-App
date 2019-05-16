@@ -7,7 +7,7 @@ import Loading from './Loading'
 import Tooltip from './Tooltip'
 
 function LangaugesNav ({ selected, onUpdateLanguage }) {
-  const languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python']
+   const languages = ['All', 'React', 'Angular', 'Vue', 'Sql', 'C#', '.Net', 'Java', 'JavaScript', 'Python', 'Ruby', 'Php', 'C++', 'C']
 
   return (
     <ul className='flex-center'>

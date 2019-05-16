@@ -10,18 +10,13 @@ const Popular = React.lazy(() => import('./components/Popular'))
 const Battle = React.lazy(() => import('./components/Battle'))
 const Results = React.lazy(() => import('./components/Results'))
 
-
 class App extends React.Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      theme: 'light',
-      toggleTheme: () => {
-        this.setState(({ theme }) => ({
-          theme: theme === 'light' ? 'dark' : 'light'
-        }))
-      }
+  state = {
+    theme: 'light',
+    toggleTheme: () => {
+      this.setState(({ theme }) => ({
+        theme: theme === 'light' ? 'dark' : 'light'
+      }))
     }
   }
   render() {
@@ -31,6 +26,7 @@ class App extends React.Component {
           <div className={this.state.theme}>
             <div className='container'>
               <Nav />
+
               <React.Suspense fallback={<Loading />} >
                 <Switch>
                   <Route exact path='/' component={Popular} />
