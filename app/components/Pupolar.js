@@ -4,25 +4,23 @@ import { fetchPopularRepos } from '../utils/api'
 import { FaUser, FaStar, FaCodeBranch, FaExclamationTriangle } from 'react-icons/fa'
 import Card from './Card'
 import Loading from './Loading'
+import Tooltip from './Tooltip'
 
-
-
-
-
-function LangaugesNav({ selected, onUpdateLanguage }) {
+function LangaugesNav ({ selected, onUpdateLanguage }) {
   const languages = ['All', 'React', 'Angular', 'Vue', 'Sql', 'C#', '.Net', 'Java', 'JavaScript', 'Python', 'Ruby', 'Php', 'C++', 'C']
+
   return (
     <ul className='flex-center'>
       {languages.map((language) => (
         <li key={language}>
-          <button style={language === selected ? { color: 'rgb(187, 46,31)' } : null}
-            className='btn-clear nav-link' onClick={() =>
-              onUpdateLanguage(language)}>
+          <button
+            className='btn-clear nav-link'
+            style={language === selected ? { color: 'rgb(187, 46, 31)' } : null}
+            onClick={() => onUpdateLanguage(language)}>
             {language}
           </button>
         </li>
       ))}
-
     </ul>
   )
 }
@@ -31,7 +29,6 @@ LangaugesNav.propTypes = {
   selected: PropTypes.string.isRequired,
   onUpdateLanguage: PropTypes.func.isRequired
 }
-
 
 function ReposGrid ({ repos }) {
   return (
@@ -50,10 +47,12 @@ function ReposGrid ({ repos }) {
             >
               <ul className='card-list'>
                 <li>
-                  <FaUser color='rgb(255, 191, 116)' size={22} />
-                  <a href={`https://github.com/${login}`}>
-                    {login}
-                  </a>
+                  <Tooltip text="Github username">
+                    <FaUser color='rgb(255, 191, 116)' size={22} />
+                    <a href={`https://github.com/${login}`}>
+                      {login}
+                    </a>
+                  </Tooltip>
                 </li>
                 <li>
                   <FaStar color='rgb(255, 215, 0)' size={22} />
@@ -136,7 +135,7 @@ export default class Popular extends React.Component {
           onUpdateLanguage={this.updateLanguage}
         />
 
-        {this.isLoading() && <Loading text='Fetching Repos.'/>}
+        {this.isLoading() && <Loading text='Fetching Repos' />}
 
         {error && <p className='center-text error'>{error}</p>}
 
@@ -145,3 +144,6 @@ export default class Popular extends React.Component {
     )
   }
 }
+
+
+//const languages = ['All', 'React', 'Angular', 'Vue', 'Sql', 'C#', '.Net', 'Java', 'JavaScript', 'Python', 'Ruby', 'Php', 'C++', 'C']
