@@ -7,7 +7,7 @@ import Loading from './Loading'
 import Tooltip from './Tooltip'
 
 function LangaugesNav ({ selected, onUpdateLanguage }) {
-  const languages = ['All', 'React', 'Angular', 'Vue', 'Sql', 'C#', '.Net', 'Java', 'JavaScript', 'Python', 'Ruby', 'Php', 'C++', 'C']
+  const languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python']
 
   return (
     <ul className='flex-center'>
@@ -144,6 +144,5 @@ export default class Popular extends React.Component {
     )
   }
 }
-
 
 //const languages = ['All', 'React', 'Angular', 'Vue', 'Sql', 'C#', '.Net', 'Java', 'JavaScript', 'Python', 'Ruby', 'Php', 'C++', 'C']
